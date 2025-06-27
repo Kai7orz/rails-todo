@@ -3,12 +3,14 @@ class UsersController < ApplicationController
     end 
 
     def show
+        @user = User.find(params[:id])
     end
 
     def create 
         @user = User.new(user_name: params[:user][:user_name],user_mail: params[:user][:user_mail] , user_password: params[:user][:user_password])
         if @user.save
-            redirect_to("/sginup")
+            puts users_url(@user)
+            redirect_to "/users/#{@user.id}"
         else
             render :user_error , status: :unprocessable_entity
         end 
