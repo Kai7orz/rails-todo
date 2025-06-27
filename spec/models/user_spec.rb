@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  let(:user) { FactoryBot.create(:user)}
+
   it "名前とメールアドレスとパスワードがあれば登録できる" do 
     user = User.new( 
       user_name: "test_taro",
@@ -62,8 +64,5 @@ RSpec.describe User, type: :model do
       )
 
       expect(user2).to_not be_valid
-
   end 
-
-  # pending "add some examples to (or delete) #{__FILE__}"
 end

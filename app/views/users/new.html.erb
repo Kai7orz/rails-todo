@@ -3,13 +3,13 @@
 <p> クライアント登録用のフォーム実装（テスト）</p>
 <%= form_with(model: @user) do |form|  %>
     <%= form.label  :user_name %>
-    <%= form.text_field :user_name %>
+    <%= form.text_field :name %>
     
     <%= form.label :user_mail %>
-    <%= form.text_field :user_mail %>
+    <%= form.text_field :mail %>
 
     <%= form.label :user_password %>
-    <%= form.text_field :user_password %>
+    <%= form.text_field :password %>
     
     <%= form.submit "送信" %>
 <% end %>
