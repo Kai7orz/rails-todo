@@ -2,6 +2,7 @@
 <p> This is a Test String </p>
 <p> クライアント用のフォーム実装（テスト）</p>
 <%= form_with do |form|  %>
-    <%= form.label ,url: tasks_path , %>
+    <%= form.label :task %>
     <%= form.text_field  %>
 <% end %>
+
