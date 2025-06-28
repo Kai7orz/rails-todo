@@ -5,7 +5,7 @@ RSpec.describe User, type: :system do
         visit "/users/login"
         fill_in "user_name", with: non_exist_user.user_name
         fill_in "user_mail", with: non_exist_user.user_mail
-        fill_in "user_password", with: non_exist_user.user_password
+        fill_in "password_digest", with: non_exist_user.password_digest
         click_button "login"
         expect(page).to have_current_path("/users/login")
     end

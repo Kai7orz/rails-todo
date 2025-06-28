@@ -7,9 +7,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_name: params[:user][:user_name], user_mail: params[:user][:user_mail], user_password: params[:user][:user_password])
+        @user = User.new(user_name: params[:user][:name], user_mail: params[:user][:mail], password_digest: params[:user][:password_digest])
         if @user.save
-            puts users_url(@user)
             redirect_to "/users/#{@user.id}"
         else
             render :user_error, status: :unprocessable_entity
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update(user_name: params[:user][:user_name], user_mail: params[:user][:user_mail], user_password: params[:user][:user_password])
+        if @user.update(user_name: params[:user][:user_name], user_mail: params[:user][:user_mail], password_digest: params[:user][:password_digest])
             redirect_to "/users/#{@user.id}"
         else
             render :user_error, status: :unprocessable_entity
@@ -30,13 +29,17 @@ class UsersController < ApplicationController
     end
 
     def new
-        @user = User.new
+        @user = User.new  # これ消すな！　form_with に mode: @user 指定するために必要！
     end
 
     def login
     end
 
     def validate
+        # email から DB のオブジェクト取得
+        # password のハッシュ化と，オブジェクトのパスワード比較して認証
+        flash
+
         redirect_to "/users/1"
     end
 
