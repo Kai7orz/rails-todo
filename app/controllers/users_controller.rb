@@ -33,6 +33,16 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def login
+    end
+
+    def validate 
+        redirect_to "/users/1"  
+    end 
+
     def destroy 
+        @user = User.find(params[:id])
+        @user.destroy 
+        redirect_to login_path
     end 
 end

@@ -1,3 +1,4 @@
 <p> test user </p>
 <p> <%= @user.user_name %> </p>
 <p> <%= @user.user_mail %> </p>
+<li><%= button_to "Destroy" , user_path(@user), method: :delete %>
