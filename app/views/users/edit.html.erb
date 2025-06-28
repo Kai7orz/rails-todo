@@ -1,0 +1,16 @@
+<p> test user </p>
+<p> <%= @user.user_name %> </p>
+<p> <%= @user.user_mail %> のページ</p>
+
+<%= form_with(model: @user,method: "patch") do |form|  %>
+    <%= form.label  :user_name %>
+    <%= form.text_field :user_name %>
+    
+    <%= form.label :user_mail %>
+    <%= form.text_field :user_mail %>
+
+    <%= form.label :user_password %>
+    <%= form.text_field :user_password %>
+    
+    <%= form.submit "ユーザーデータ更新" %>
+<% end %>
