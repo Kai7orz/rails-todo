@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
     def index
-    end 
+    end
 
-    def create 
-    end 
+    def create
+    end
 
-    def update 
-    end 
+    def update
+    end
 
-    def destroy 
-    end 
+    def destroy
+    end
 end
