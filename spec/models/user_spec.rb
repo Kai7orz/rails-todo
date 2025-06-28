@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   it "名前とメールアドレスとパスワードがあれば登録できる" do
     user = User.new(
       user_name: "test_taro",
@@ -11,7 +10,7 @@ RSpec.describe User, type: :model do
 
     expect(user).to be_valid
   end
-  
+
   it "名前がないと登録不可能" do
     user = User.new(
       user_name: nil,
